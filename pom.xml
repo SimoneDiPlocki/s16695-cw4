@@ -47,7 +47,7 @@
                 <version>3.2.5</version>
             </plugin>
 
-            <!-- Budowanie wykonywalnego JAR z ustawioną klasą main -->
+            <!-- Budowanie pliku JAR z ustawioną klasą główną -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -58,6 +58,16 @@
                             <mainClass>org.example.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Uruchomienie aplikacji, tzw. dry run z użyciem komendy mvn exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <mainClass>org.example.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
