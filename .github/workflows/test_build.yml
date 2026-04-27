@@ -1,0 +1,40 @@
+name: Zadanie 1 - Automatyzacja
+on:
+  push:
+    branches: [ "master", "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobranie kodu
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja Javy 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      # --- Zadanie 1 ---
+
+      # Uruchomienie aplikacji ("dry run") przy pomocy mvn exec
+      - name: Uruchomienie aplikacji (Dry run)
+        run: mvn exec:java
+
+      # Wykonanie testów jednostkowych
+      - name: Wykonanie testow jednostkowych
+        run: mvn test
+
+      # Test pakowania aplikacji do formatu .jar
+      - name: Pakowanie aplikacji do pliku JAR
+        run: mvn package
+
+      # Przygotowanie zbudowanego pliku .jar do pobrania
+      - name: Udostepnienie pliku do pobrania
+        uses: actions/upload-artifact@v4
+        with:
+          name: gotowy-program
+          path: target/*.jar
