@@ -22,7 +22,7 @@ jobs:
 
       # Uruchomienie aplikacji ("dry run") przy pomocy mvn exec
       - name: Uruchomienie aplikacji (Dry run)
-        run: mvn exec:java
+        run: mvn compile exec:java
 
       # Wykonanie testów jednostkowych
       - name: Wykonanie testow jednostkowych
