@@ -1,7 +1,8 @@
+package org.example;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.example.Gradebook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
@@ -19,13 +20,13 @@ import java.util.stream.Stream;
 
 public final class GradebookTest {
 
-    /** Stala dla oceny 3.0 */
+    /** Stala dla oceny 3.0. */
     private static final double GRADE_3_0 = 3.0;
-    /** Stala dla oceny 4.0 */
+    /** Stala dla oceny 4.0. */
     private static final double GRADE_4_0 = 4.0;
-    /** Stala dla oceny 4.5 */
+    /** Stala dla oceny 4.5. */
     private static final double GRADE_4_5 = 4.5;
-    /** Stala dla oceny 5.0 */
+    /** Stala dla oceny 5.0. */
     private static final double GRADE_5_0 = 5.0;
     /** Margines bledu dla asercji double */
     private static final double DELTA = 0.001;
@@ -95,7 +96,8 @@ public final class GradebookTest {
                                     gradebook.getGrades().get(subject).size(),
                                     "Amount of grades test: " + subject);
 
-                            double actualAverage = gradebook.calcAvgForSubject(subject);
+                            double actualAverage =
+                                    gradebook.calcAvgForSubject(subject);
                             assertEquals(GRADE_4_5, actualAverage, DELTA,
                                     "Grade average test: " + subject);
                         }));

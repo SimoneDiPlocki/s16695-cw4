@@ -7,15 +7,15 @@ import java.util.Map;
  */
 public final class Main {
 
-    /** Stala reprezentujaca ocene 3.0 */
+    /** Stala reprezentujaca ocene 3.0. */
     private static final double GRADE_3_0 = 3.0;
-    /** Stala reprezentujaca ocene 3.5 */
+    /** Stala reprezentujaca ocene 3.5. */
     private static final double GRADE_3_5 = 3.5;
-    /** Stala reprezentujaca ocene 4.0 */
+    /** Stala reprezentujaca ocene 4.0. */
     private static final double GRADE_4_0 = 4.0;
-    /** Stala reprezentujaca ocene 4.5 */
+    /** Stala reprezentujaca ocene 4.5. */
     private static final double GRADE_4_5 = 4.5;
-    /** Stala reprezentujaca ocene 5.0 */
+    /** Stala reprezentujaca ocene 5.0. */
     private static final double GRADE_5_0 = 5.0;
 
     /**
