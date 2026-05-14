@@ -91,7 +91,8 @@ public final class GradebookTest {
                                     gradebook.getGrades().get(subject).size(),
                                     "Amount of grades test: " + subject);
 
-                            double actualAverage = gradebook.calcAvgForSubject(subject);
+                            double actualAverage =
+                                    gradebook.calcAvgForSubject(subject);
                             assertEquals(GRADE_4_5, actualAverage, DELTA,
                                     "Grade average test: " + subject);
                         }));
