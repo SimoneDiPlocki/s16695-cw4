@@ -13,13 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-
 /**
-  * Klasa testowa dla dzienniczka ocen.
-  */
-
+ * Klasa testowa dla dzienniczka ocen.
+ */
 public final class GradebookTest {
 
+    // --- Stale dla lintera (usuniecie bledu MagicNumber) ---
     /** Stala dla oceny 3.0. */
     private static final double GRADE_3_0 = 3.0;
     /** Stala dla oceny 4.0. */
@@ -28,40 +27,37 @@ public final class GradebookTest {
     private static final double GRADE_4_5 = 4.5;
     /** Stala dla oceny 5.0. */
     private static final double GRADE_5_0 = 5.0;
-    /** Margines bledu dla asercji double */
+    /** Margines bledu dla asercji double. */
     private static final double DELTA = 0.001;
-    /** Oczekiwana liczba ocen w tescie */
+    /** Oczekiwana liczba ocen w tescie. */
     private static final int EXPECTED_COUNT = 2;
 
-/**
- * Instancja testowanego dzienniczka.
- */
-
+    /**
+     * Instancja testowanego dzienniczka.
+     */
     private Gradebook gradebook;
 
- /**
-  * Inicjalizacja przed kazdym testem (czysty stan).
-  */
-
+    /**
+     * Inicjalizacja przed kazdym testem (czysty stan).
+     */
     @BeforeEach
     public void setUp() {
         gradebook = new Gradebook();
     }
 
-/**
- * Test dodawania przedmiotu.
- */
-
+    /**
+     * Test dodawania przedmiotu.
+     */
     @Test
     public void testAddSubject() {
         gradebook.addSubject("Physics");
         List<String> expectedList = List.of("Physics");
         assertEquals(expectedList, gradebook.getSubjects());
     }
-/**
-  * Test dodawania oceny z danego przedmiotu.
-  */
 
+    /**
+     * Test dodawania oceny z danego przedmiotu.
+     */
     @Test
     public void testAddGradeToSubject() {
         gradebook.addSubject("Math");
@@ -73,11 +69,10 @@ public final class GradebookTest {
         assertEquals(expectedMap, gradebook.getGrades());
     }
 
-/**
-  * Testy dynamiczne dla dodawania ocen z przedmiotow.
-  * @return Strumien testow dynamicznych.
-  */
-
+    /**
+     * Testy dynamiczne dla dodawania ocen z przedmiotow.
+     * @return Strumien testow dynamicznych.
+     */
     @TestFactory
     Stream<DynamicTest> dynamicTestsForSubjects() {
         gradebook.addSubject("Math");
@@ -96,18 +91,16 @@ public final class GradebookTest {
                                     gradebook.getGrades().get(subject).size(),
                                     "Amount of grades test: " + subject);
 
-                            double actualAverage =
-                                    gradebook.calcAvgForSubject(subject);
+                            double actualAverage = gradebook.calcAvgForSubject(subject);
                             assertEquals(GRADE_4_5, actualAverage, DELTA,
                                     "Grade average test: " + subject);
                         }));
     }
 
-/**
-  * Dynamiczne testy wyliczania sredniej dla wszystkich.
-  * @return Strumien testow dynamicznych.
-  */
-
+    /**
+     * Dynamiczne testy wyliczania sredniej dla wszystkich.
+     * @return Strumien testow dynamicznych.
+     */
     @TestFactory
     Stream<DynamicTest> dynamicTestCalcAvgForAllSubjects() {
         record TestCase(
@@ -115,23 +108,23 @@ public final class GradebookTest {
                 List<String> subjectsToAdd,
                 Map<String, List<Double>> gradesToAdd,
                 Map<String, Double> expectedResult
-        ) { }
+        ) { } // Linter wymaga tutaj spacji w klamerkach
 
         Stream<TestCase> testCases = Stream.of(
                 new TestCase(
-                        "Test 1: Pusty",
+                        "Test 1: Pusty.",
                         List.of(),
                         Map.of(),
                         Map.of()
                 ),
                 new TestCase(
-                        "Test 2: Brak Ocen",
+                        "Test 2: Brak ocen.",
                         List.of("History", "Biology"),
                         Map.of(),
                         Map.of()
                 ),
                 new TestCase(
-                        "Test 3: Poprawne obliczenie dla 3",
+                        "Test 3: Poprawne obliczenie dla 3.",
                         List.of("Math", "Physics", "Chemistry"),
                         Map.of(
                                 "Math", List.of(GRADE_4_0, GRADE_5_0),
