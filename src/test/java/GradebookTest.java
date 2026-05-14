@@ -19,13 +19,18 @@ import java.util.stream.Stream;
 
 public final class GradebookTest {
 
-// --- Stale dla lintera (usuniecie bledu MagicNumber) ---
-private static final double GRADE_3_0 = 3.0;
-private static final double GRADE_4_0 = 4.0;
-private static final double GRADE_4_5 = 4.5;
-private static final double GRADE_5_0 = 5.0;
-private static final double DELTA = 0.001;
-private static final int EXPECTED_COUNT = 2;
+    /** Stala dla oceny 3.0 */
+    private static final double GRADE_3_0 = 3.0;
+    /** Stala dla oceny 4.0 */
+    private static final double GRADE_4_0 = 4.0;
+    /** Stala dla oceny 4.5 */
+    private static final double GRADE_4_5 = 4.5;
+    /** Stala dla oceny 5.0 */
+    private static final double GRADE_5_0 = 5.0;
+    /** Margines bledu dla asercji double */
+    private static final double DELTA = 0.001;
+    /** Oczekiwana liczba ocen w tescie */
+    private static final int EXPECTED_COUNT = 2;
 
 /**
  * Instancja testowanego dzienniczka.
